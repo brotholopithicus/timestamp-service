@@ -3,6 +3,8 @@ const url = require('url');
 
 const TimestampService = require('./timestamp');
 
+const PORT = process.env.PORT || 3000;
+
 // return only top level path and decode URI
 const formatPath = (path) => decodeURI(path.substr(1, path.length - 1).split('/')[0]);
 
@@ -15,4 +17,4 @@ const reqHandler = (req, res) => {
 
 const server = http.Server(reqHandler);
 
-server.listen(3000, () => console.log('Server Running On Port: 3000'));
+server.listen(PORT, () => console.log('Server Running On Port: ' + PORT));
